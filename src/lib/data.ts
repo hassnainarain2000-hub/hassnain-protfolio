@@ -57,36 +57,54 @@ export const projects = [
   {
     title: "Hospital Management System",
     image: "/projects/hospital-management.svg",
+    description:
+      "A complete hospital management solution covering patient registration, appointment scheduling, doctor profiles, billing, and medical records. Built for efficiency and ease of use in healthcare environments.",
+    technologies: ["Python", "Django", "PostgreSQL", "HTML", "CSS"],
     demoUrl: "#",
     githubUrl: "#",
   },
   {
     title: "Restaurant Management System",
     image: "/projects/restaurant-management.svg",
+    description:
+      "End-to-end restaurant operations software: order management, kitchen display systems, table reservations, staff scheduling, and real-time reporting dashboards for owners.",
+    technologies: ["Python", "Django", "JavaScript", "PostgreSQL"],
     demoUrl: "#",
     githubUrl: "#",
   },
   {
     title: "Store & Inventory Management",
     image: "/projects/store-inventory.svg",
+    description:
+      "Comprehensive inventory tracking system with stock management, purchase orders, sales analytics, barcode scanning support, and automated low-stock alerts for retail businesses.",
+    technologies: ["Python", "Django", "SQLite", "HTML", "CSS"],
     demoUrl: "#",
     githubUrl: "#",
   },
   {
     title: "Distribution Management System",
     image: "/projects/distribution.svg",
+    description:
+      "Distribution tracking platform for managing supply chain operations, delivery routes, warehouse inventory, and real-time shipment monitoring across multiple locations.",
+    technologies: ["Python", "Django", "PostgreSQL", "JavaScript"],
     demoUrl: "#",
     githubUrl: "#",
   },
   {
     title: "POS System",
     image: "/projects/pos-system.svg",
+    description:
+      "A complete point-of-sale system with inventory tracking, sales reporting, receipt printing, and multi-terminal support. Designed for speed and reliability in retail environments.",
+    technologies: ["C#", ".NET Core", "WPF", "SQLite"],
     demoUrl: "#",
     githubUrl: "#",
   },
   {
     title: "E-commerce Website",
     image: "/projects/ecommerce.svg",
+    description:
+      "Modern, responsive e-commerce platform with product catalog, shopping cart, secure checkout, order tracking, and an admin dashboard for managing products and orders.",
+    technologies: ["HTML", "CSS", "JavaScript", "Node.js", "MongoDB"],
     demoUrl: "#",
     githubUrl: "#",
   },

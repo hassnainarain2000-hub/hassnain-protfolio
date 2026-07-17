@@ -4,12 +4,35 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { TiltCard } from "@/components/ui/TiltCard";
+import { ProjectDetails } from "@/components/sections/ProjectDetails";
 import { projects } from "@/lib/data";
-import { ExternalLink, X } from "lucide-react";
 import Image from "next/image";
 
+function TechBadges({ technologies }: { technologies: readonly string[] }) {
+  const shown = technologies.slice(0, 3);
+  const remaining = technologies.length - 3;
+
+  return (
+    <div className="flex flex-wrap gap-1.5 mt-2">
+      {shown.map((tech) => (
+        <span
+          key={tech}
+          className="px-2 py-0.5 rounded-md bg-accent/10 text-accent text-xs border border-accent/10"
+        >
+          {tech}
+        </span>
+      ))}
+      {remaining > 0 && (
+        <span className="px-2 py-0.5 rounded-md text-text-muted text-xs">
+          +{remaining} more
+        </span>
+      )}
+    </div>
+  );
+}
+
 export function Projects() {
-  const [lightbox, setLightbox] = useState<{ title: string; image: string } | null>(null);
+  const [selected, setSelected] = useState<(typeof projects)[number] | null>(null);
 
   return (
     <section id="projects" className="py-16 lg:py-24 px-6 bg-secondary/20">
@@ -29,11 +52,9 @@ export function Projects() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
               <TiltCard>
-                <a
-                  href={project.demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block glass rounded-2xl overflow-hidden hover:glow-accent transition-all duration-300"
+                <button
+                  onClick={() => setSelected(project)}
+                  className="group block w-full text-left glass rounded-2xl overflow-hidden hover:glow-accent transition-all duration-300 cursor-pointer"
                 >
                   <div className="relative aspect-[3/2] overflow-hidden bg-secondary">
                     <Image
@@ -43,18 +64,14 @@ export function Projects() {
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-base/0 group-hover:bg-base/20 transition-colors duration-300" />
-                    <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="w-8 h-8 rounded-lg bg-accent/20 backdrop-blur-sm flex items-center justify-center">
-                        <ExternalLink className="w-4 h-4 text-accent" />
-                      </div>
-                    </div>
                   </div>
                   <div className="p-4">
                     <h3 className="font-sora font-semibold text-text-primary group-hover:text-accent transition-colors duration-300">
                       {project.title}
                     </h3>
+                    <TechBadges technologies={project.technologies} />
                   </div>
-                </a>
+                </button>
               </TiltCard>
             </motion.div>
           ))}
@@ -62,41 +79,8 @@ export function Projects() {
       </div>
 
       <AnimatePresence>
-        {lightbox && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] bg-base/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
-            onClick={() => setLightbox(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="relative max-w-4xl w-full"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                onClick={() => setLightbox(null)}
-                className="absolute -top-12 right-0 text-text-muted hover:text-accent transition-colors"
-                aria-label="Close lightbox"
-              >
-                <X size={28} />
-              </button>
-              <div className="relative aspect-video rounded-2xl overflow-hidden border border-glass-border">
-                <Image
-                  src={lightbox.image}
-                  alt={lightbox.title}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <p className="text-center text-text-primary font-sora font-semibold mt-4">
-                {lightbox.title}
-              </p>
-            </motion.div>
-          </motion.div>
+        {selected && (
+          <ProjectDetails project={selected} onClose={() => setSelected(null)} />
         )}
       </AnimatePresence>
     </section>
