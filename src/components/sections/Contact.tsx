@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ScrollTypewriter } from "@/components/ui/ScrollTypewriter";
+import { TiltCard } from "@/components/ui/TiltCard";
 import { Button } from "@/components/ui/Button";
 import { contact } from "@/lib/data";
 import { Mail, MessageCircle } from "lucide-react";
@@ -17,23 +19,23 @@ export function Contact() {
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
             className="space-y-8"
           >
-            <p className="text-text-muted text-lg leading-relaxed">
-              Have a business problem that needs a software solution? Whether it&apos;s a
-              point-of-sale system, inventory management, or a custom web application —
-              I&apos;d love to hear about your project.
-            </p>
+            <ScrollTypewriter className="text-text-muted text-lg leading-relaxed">
+              Have a business problem that needs a software solution? Whether it&apos;s a point-of-sale system, inventory management, or a custom web application — I&apos;d love to hear about your project.
+            </ScrollTypewriter>
 
             <div className="space-y-4">
-              <a
+              <motion.a
                 href={contact.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
+                whileHover={{ x: 4 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className="flex items-center gap-4 p-4 glass rounded-xl hover:glow-accent transition-all group"
               >
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
@@ -43,9 +45,13 @@ export function Contact() {
                   <p className="text-text-primary font-semibold">WhatsApp</p>
                   <p className="text-text-muted text-sm">{contact.whatsapp}</p>
                 </div>
-              </a>
+              </motion.a>
 
-              <div className="flex items-center gap-4 p-4 glass rounded-xl">
+              <motion.div
+                whileHover={{ x: 4 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="flex items-center gap-4 p-4 glass rounded-xl"
+              >
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
                   <Mail className="w-6 h-6 text-accent" />
                 </div>
@@ -53,12 +59,14 @@ export function Contact() {
                   <p className="text-text-primary font-semibold">Email</p>
                   <p className="text-text-muted text-sm">{contact.email}</p>
                 </div>
-              </div>
+              </motion.div>
 
-              <a
+              <motion.a
                 href={contact.github}
                 target="_blank"
                 rel="noopener noreferrer"
+                whileHover={{ x: 4 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className="flex items-center gap-4 p-4 glass rounded-xl hover:glow-accent transition-all group"
               >
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
@@ -68,32 +76,39 @@ export function Contact() {
                   <p className="text-text-primary font-semibold">GitHub</p>
                   <p className="text-text-muted text-sm">View my projects</p>
                 </div>
-              </a>
+              </motion.a>
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="glass rounded-2xl p-6 sm:p-8 text-center"
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.2 }}
           >
-            <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-accent/10 flex items-center justify-center">
-              <MessageCircle className="w-10 h-10 text-accent" />
-            </div>
-            <h3 className="font-sora text-2xl font-bold text-text-primary mb-3">
-              Ready to start?
-            </h3>
-            <p className="text-text-muted mb-6">
-              The fastest way to reach me is through WhatsApp. Let&apos;s talk about
-              your project.
-            </p>
-            <a href={contact.whatsappLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="primary" className="w-full">
-                Message on WhatsApp
-              </Button>
-            </a>
+            <TiltCard>
+              <div className="glass rounded-2xl p-6 sm:p-8 text-center">
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                  className="w-20 h-20 mx-auto mb-6 rounded-full bg-accent/10 flex items-center justify-center"
+                >
+                  <MessageCircle className="w-10 h-10 text-accent" />
+                </motion.div>
+                <h3 className="font-sora text-2xl font-bold text-text-primary mb-3">
+                  Ready to start?
+                </h3>
+                <p className="text-text-muted mb-6">
+                  The fastest way to reach me is through WhatsApp. Let&apos;s talk about
+                  your project.
+                </p>
+                <a href={contact.whatsappLink} target="_blank" rel="noopener noreferrer">
+                  <Button variant="primary" className="w-full">
+                    Message on WhatsApp
+                  </Button>
+                </a>
+              </div>
+            </TiltCard>
           </motion.div>
         </div>
       </div>

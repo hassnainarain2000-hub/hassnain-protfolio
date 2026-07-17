@@ -1,14 +1,69 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/Button";
+import { ScrollTypewriter } from "@/components/ui/ScrollTypewriter";
 import { ArrowDown } from "lucide-react";
 
 const Scene = dynamic(() => import("@/components/three/Scene").then((m) => m.Scene), {
   ssr: false,
 });
+
+const headlineParts = [
+  { text: "Building Software That ", gradient: false },
+  { text: "Powers Modern", gradient: true },
+  { text: " Businesses", gradient: false },
+];
+
+function LetterByLetter() {
+  const [mounted, setMounted] = useState(false);
+  const allLetters: { char: string; gradient: boolean; globalIndex: number }[] = [];
+
+  headlineParts.forEach((part) => {
+    part.text.split("").forEach((char) => {
+      allLetters.push({
+        char,
+        gradient: part.gradient,
+        globalIndex: allLetters.length,
+      });
+    });
+  });
+
+  useEffect(() => {
+    const timer = setTimeout(() => setMounted(true), 300);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <h1 className="font-sora text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+      {allLetters.map(({ char, gradient, globalIndex }) => (
+        <motion.span
+          key={globalIndex}
+          initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+          animate={mounted ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+          transition={{ duration: 0.4, delay: globalIndex * 0.04 }}
+          className={gradient ? "text-gradient" : ""}
+          style={{ display: "inline-block", whiteSpace: char === " " ? "pre" : undefined }}
+        >
+          {char}
+        </motion.span>
+      ))}
+      {mounted && (
+        <motion.span
+          initial={{ opacity: 1 }}
+          animate={{ opacity: [1, 0, 1, 0, 1, 0] }}
+          transition={{ duration: 2.4, delay: allLetters.length * 0.04 + 0.5, times: [0, 0.17, 0.33, 0.5, 0.67, 0.83] }}
+          className="text-accent ml-0.5"
+        >
+          &#9613;
+        </motion.span>
+      )}
+    </h1>
+  );
+}
 
 export function Hero() {
   return (
@@ -27,26 +82,11 @@ export function Hero() {
               Full Stack Developer
             </motion.p>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="font-sora text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
-            >
-              Building Software That{" "}
-              <span className="text-gradient">Powers Modern</span>{" "}
-              Businesses
-            </motion.h1>
+            <LetterByLetter />
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-text-muted text-lg md:text-xl mb-8 max-w-xl mx-auto lg:mx-0"
-            >
-              Building custom software and professional websites for businesses.
-              From web applications to desktop solutions — built for real results.
-            </motion.p>
+            <ScrollTypewriter className="text-text-muted text-lg md:text-xl mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              Building custom software and professional websites for businesses. From web applications to desktop solutions — built for real results.
+            </ScrollTypewriter>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}

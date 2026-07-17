@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Sora, Inter, Space_Grotesk } from "next/font/google";
+import { LenisProvider } from "@/components/layout/LenisProvider";
 import "./globals.css";
 
 const sora = Sora({
@@ -75,7 +76,9 @@ export default function RootLayout({
       className={`${sora.variable} ${inter.variable} ${spaceGrotesk.variable}`}
     >
       <body className="min-h-screen bg-base text-text-primary antialiased">
-        {children}
+        <LenisProvider>
+          {children}
+        </LenisProvider>
       </body>
     </html>
   );

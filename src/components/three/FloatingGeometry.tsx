@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
+import { Float } from "@react-three/drei";
 import * as THREE from "three";
 
 function Shape({
@@ -29,8 +30,6 @@ function Shape({
       ref.current.rotation.x = t * 0.7;
       ref.current.rotation.y = t;
     }
-    ref.current.position.y = position[1] + Math.sin(t * 0.5) * 0.2;
-    ref.current.position.x = position[0] + Math.cos(t * 0.3) * 0.1;
   });
 
   const geo = (() => {
@@ -46,18 +45,36 @@ function Shape({
     }
   })();
 
+  const isTorus = geometry === "torus";
+
   return (
-    <mesh ref={ref} position={position}>
-      {geo}
-      <meshStandardMaterial
-        color={color}
-        wireframe={wireframe}
-        transparent
-        opacity={wireframe ? 0.3 : 0.6}
-        roughness={0.4}
-        metalness={0.1}
-      />
-    </mesh>
+    <Float speed={1.5} rotationIntensity={0} floatIntensity={0.5}>
+      <mesh ref={ref} position={position}>
+        {geo}
+        {isTorus ? (
+          <meshStandardMaterial
+            color={color}
+            wireframe={wireframe}
+            transparent
+            opacity={0.6}
+            roughness={0.4}
+            metalness={0.1}
+            emissive="#C9A96A"
+            emissiveIntensity={1.5}
+            toneMapped={false}
+          />
+        ) : (
+          <meshStandardMaterial
+            color={color}
+            wireframe={wireframe}
+            transparent
+            opacity={wireframe ? 0.3 : 0.6}
+            roughness={0.4}
+            metalness={0.1}
+          />
+        )}
+      </mesh>
+    </Float>
   );
 }
 

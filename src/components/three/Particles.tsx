@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
@@ -16,19 +16,40 @@ function generateParticles(count: number) {
   return { pos, siz };
 }
 
-const count = 120;
-const { pos, siz } = generateParticles(count);
-const sharedGeometry = new THREE.BufferGeometry();
-sharedGeometry.setAttribute("position", new THREE.BufferAttribute(pos, 3));
-sharedGeometry.setAttribute("size", new THREE.BufferAttribute(siz, 1));
+function getParticleCount() {
+  if (typeof window !== "undefined" && window.innerWidth < 768) {
+    return 80;
+  }
+  return 200;
+}
 
 export function Particles() {
   const ref = useRef<THREE.Points>(null!);
+  const count = useMemo(() => getParticleCount(), []);
+  const { pos, siz } = useMemo(() => generateParticles(count), [count]);
+  const sharedGeometry = useMemo(() => {
+    const geom = new THREE.BufferGeometry();
+    geom.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+    geom.setAttribute("size", new THREE.BufferAttribute(siz, 1));
+    return geom;
+  }, [pos, siz]);
 
   useFrame((state) => {
-    const t = state.clock.getElapsedTime() * 0.1;
-    ref.current.rotation.y = t;
-    ref.current.rotation.x = t * 0.3;
+    const t = state.clock.getElapsedTime();
+    ref.current.rotation.y = t * 0.1;
+    ref.current.rotation.x = t * 0.03;
+
+    const positions = ref.current.geometry.attributes.position;
+    if (positions) {
+      for (let i = 0; i < count; i++) {
+        const i3 = i * 3;
+        const baseY = pos[i3 + 1];
+        const baseX = pos[i3];
+        const arr = positions.array as Float32Array;
+        arr[i3 + 1] = baseY + Math.sin(t * 0.5 + baseX * 0.5) * 0.1;
+      }
+      positions.needsUpdate = true;
+    }
   });
 
   return (

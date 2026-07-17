@@ -47,9 +47,9 @@ export const services = [
 ] as const;
 
 export const skills = {
-  Web: ["Node.js", "HTML", "CSS", "JavaScript"],
-  Desktop: ["Python", "Django", "C#", ".NET Core", "WPF"],
-  Database: ["PostgreSQL", "SQLite"],
+  Frontend: ["HTML", "CSS", "JavaScript", "React.js"],
+  Backend: ["Python", "Django", "Node.js", "FastAPI", "C#", ".NET Core", "WPF"],
+  Database: ["PostgreSQL", "SQLite", "MongoDB"],
   Tools: ["Git"],
 } as const;
 

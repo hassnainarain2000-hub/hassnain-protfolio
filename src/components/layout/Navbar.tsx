@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "@/lib/data";
 
@@ -9,6 +9,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("#home");
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { scrollYProgress } = useScroll();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,6 +50,10 @@ export function Navbar() {
           scrolled ? "glass-strong shadow-lg" : "bg-transparent"
         }`}
       >
+        <motion.div
+          style={{ scaleX: scrollYProgress }}
+          className="h-[2px] bg-accent origin-left"
+        />
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <a
             href="#home"

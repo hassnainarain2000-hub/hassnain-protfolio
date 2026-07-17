@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { TiltCard } from "@/components/ui/TiltCard";
 import { projects } from "@/lib/data";
 import { ExternalLink, X } from "lucide-react";
 import Image from "next/image";
@@ -22,37 +23,39 @@ export function Projects() {
           {projects.map((project, i) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              initial={{ opacity: 0, y: 40, clipPath: "inset(100% 0 0 0)" }}
+              whileInView={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }}
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: i * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
             >
-              <a
-                href={project.demoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block glass rounded-2xl overflow-hidden hover:glow-accent transition-all duration-300"
-              >
-                <div className="relative aspect-[3/2] overflow-hidden bg-secondary">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-base/0 group-hover:bg-base/20 transition-colors duration-300" />
-                  <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-8 h-8 rounded-lg bg-accent/20 backdrop-blur-sm flex items-center justify-center">
-                      <ExternalLink className="w-4 h-4 text-accent" />
+              <TiltCard>
+                <a
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block glass rounded-2xl overflow-hidden hover:glow-accent transition-all duration-300"
+                >
+                  <div className="relative aspect-[3/2] overflow-hidden bg-secondary">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-base/0 group-hover:bg-base/20 transition-colors duration-300" />
+                    <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="w-8 h-8 rounded-lg bg-accent/20 backdrop-blur-sm flex items-center justify-center">
+                        <ExternalLink className="w-4 h-4 text-accent" />
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="p-4">
-                  <h3 className="font-sora font-semibold text-text-primary group-hover:text-accent transition-colors duration-300">
-                    {project.title}
-                  </h3>
-                </div>
-              </a>
+                  <div className="p-4">
+                    <h3 className="font-sora font-semibold text-text-primary group-hover:text-accent transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                  </div>
+                </a>
+              </TiltCard>
             </motion.div>
           ))}
         </div>

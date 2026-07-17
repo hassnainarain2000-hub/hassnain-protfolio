@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ScrollTypewriter } from "@/components/ui/ScrollTypewriter";
 import { faqs } from "@/lib/data";
 import { ChevronDown } from "lucide-react";
 
@@ -21,10 +22,10 @@ export function FAQ() {
           {faqs.map((faq, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{ type: "spring", stiffness: 100, damping: 20, delay: i * 0.1 }}
               className="glass rounded-xl overflow-hidden"
             >
               <button
@@ -52,9 +53,11 @@ export function FAQ() {
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <p className="px-5 pb-5 text-text-muted text-sm leading-relaxed">
-                      {faq.answer}
-                    </p>
+                    <div className="px-5 pb-5">
+                      <ScrollTypewriter className="text-text-muted text-sm leading-relaxed">
+                        {faq.answer}
+                      </ScrollTypewriter>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
