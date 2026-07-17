@@ -59,7 +59,7 @@ function Shape({
             opacity={0.6}
             roughness={0.4}
             metalness={0.1}
-            emissive="#C9A96A"
+            emissive="#C8C8CE"
             emissiveIntensity={1.5}
             toneMapped={false}
           />
@@ -86,7 +86,7 @@ export function FloatingGeometry() {
         geometry="icosahedron"
         speed={0.3}
         rotationAxis="xy"
-        color="#C9A96A"
+        color="#C8C8CE"
         wireframe
       />
       <Shape
@@ -94,7 +94,7 @@ export function FloatingGeometry() {
         geometry="octahedron"
         speed={0.25}
         rotationAxis="y"
-        color="#16241C"
+        color="#1C1C1F"
         wireframe
       />
       <Shape
@@ -102,14 +102,14 @@ export function FloatingGeometry() {
         geometry="torus"
         speed={0.2}
         rotationAxis="x"
-        color="#C9A96A"
+        color="#C8C8CE"
       />
       <Shape
         position={[1.8, 1.5, -2.5]}
         geometry="dodecahedron"
         speed={0.15}
         rotationAxis="xy"
-        color="#16241C"
+        color="#1C1C1F"
         wireframe
       />
     </group>

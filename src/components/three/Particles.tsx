@@ -56,7 +56,7 @@ export function Particles() {
     <points ref={ref} geometry={sharedGeometry}>
       <pointsMaterial
         size={0.03}
-        color="#C9A96A"
+        color="#C8C8CE"
         transparent
         opacity={0.4}
         sizeAttenuation

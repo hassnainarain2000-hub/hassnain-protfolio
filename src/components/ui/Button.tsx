@@ -21,7 +21,7 @@ export function Button({
       className={cn(
         "relative px-6 py-3 sm:px-8 sm:py-3.5 rounded-xl font-sora font-semibold text-sm tracking-wide transition-all duration-300 cursor-pointer",
         variant === "primary" &&
-          "bg-accent text-base hover:shadow-[0_0_24px_rgba(201,169,106,0.3)]",
+          "bg-accent-ruby text-base hover:shadow-[0_0_24px_rgba(139,30,63,0.3)]",
         variant === "secondary" &&
           "bg-transparent text-text-primary border border-glass-border hover:border-accent/40 hover:bg-accent/5",
         className

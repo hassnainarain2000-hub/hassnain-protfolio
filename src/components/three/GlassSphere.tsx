@@ -24,7 +24,7 @@ function Sphere({
       <mesh ref={ref} position={position} scale={scale}>
         <sphereGeometry args={[1, 32, 32]} />
         <meshPhysicalMaterial
-          color="#C9A96A"
+          color="#C8C8CE"
           transparent
           opacity={0.15}
           roughness={0.1}

@@ -12,7 +12,7 @@ interface GlassCardProps {
 export function GlassCard({ children, className, hover = true }: GlassCardProps) {
   return (
     <motion.div
-      whileHover={hover ? { y: -4, borderColor: "rgba(201, 169, 106, 0.3)" } : undefined}
+      whileHover={hover ? { y: -4, borderColor: "rgba(200, 200, 206, 0.3)" } : undefined}
       transition={{ duration: 0.15, ease: "easeOut" }}
       className={cn(
         "glass rounded-2xl p-4 sm:p-6 transition-all duration-150",

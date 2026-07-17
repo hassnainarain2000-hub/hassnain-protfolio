@@ -51,7 +51,7 @@ export function Process() {
                     <Icon className="w-8 h-8 text-accent" />
                   </motion.div>
 
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-accent text-base font-sora font-bold text-sm flex items-center justify-center">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#8B1E3F] text-base font-sora font-bold text-sm flex items-center justify-center">
                     {step.step}
                   </div>
 

@@ -68,7 +68,7 @@ export function TiltCard({ children, className }: TiltCardProps) {
           style={{
             opacity: 0.15,
             background:
-              "radial-gradient(circle at 50% 50%, rgba(201,169,106,0.3), transparent 70%)",
+              "radial-gradient(circle at 50% 50%, rgba(200,200,206,0.3), transparent 70%)",
           }}
         />
       )}
