@@ -8,7 +8,7 @@ import { ArrowUpRight, Check } from "lucide-react";
 
 export function Projects() {
   return (
-    <section id="projects" className="py-24 px-6 bg-secondary/20">
+    <section id="projects" className="py-16 lg:py-24 px-6 bg-secondary/20">
       <div className="max-w-7xl mx-auto">
         <SectionHeading
           title="Featured Projects"

@@ -8,14 +8,14 @@ import { Mail, MessageCircle } from "lucide-react";
 
 export function Contact() {
   return (
-    <section id="contact" className="py-24 px-6">
+    <section id="contact" className="py-16 lg:py-24 px-6">
       <div className="max-w-7xl mx-auto">
         <SectionHeading
           title="Get In Touch"
           subtitle="Let's build something exceptional together"
         />
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -77,7 +77,7 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="glass rounded-2xl p-8 text-center"
+            className="glass rounded-2xl p-6 sm:p-8 text-center"
           >
             <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-accent/10 flex items-center justify-center">
               <MessageCircle className="w-10 h-10 text-accent" />

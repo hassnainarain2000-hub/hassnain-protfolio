@@ -24,7 +24,7 @@ const iconMap = {
 
 export function Services() {
   return (
-    <section id="services" className="py-24 px-6 bg-secondary/20">
+    <section id="services" className="py-16 lg:py-24 px-6 bg-secondary/20">
       <div className="max-w-7xl mx-auto">
         <SectionHeading
           title="Services"

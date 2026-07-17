@@ -9,7 +9,7 @@ const iconMap = { Phone, FileText, Code, Rocket };
 
 export function Process() {
   return (
-    <section className="py-24 px-6">
+    <section className="py-16 lg:py-24 px-6">
       <div className="max-w-7xl mx-auto">
         <SectionHeading
           title="How We Work"
@@ -19,7 +19,7 @@ export function Process() {
         <div className="relative">
           <div className="hidden lg:block absolute top-12 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-accent/0 via-accent/30 to-accent/0" />
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {processSteps.map((step, i) => {
               const Icon = iconMap[step.icon as keyof typeof iconMap];
               return (
@@ -31,7 +31,7 @@ export function Process() {
                   transition={{ duration: 0.5, delay: i * 0.15 }}
                   className="relative text-center"
                 >
-                  <div className="relative z-10 w-24 h-24 mx-auto mb-6 rounded-full glass flex items-center justify-center border border-accent/20">
+                  <div className="relative z-10 w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-6 rounded-full glass flex items-center justify-center border border-accent/20">
                     <Icon className="w-8 h-8 text-accent" />
                   </div>
 

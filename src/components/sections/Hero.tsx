@@ -14,8 +14,8 @@ export function Hero() {
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       <Scene />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full py-20">
-        <div className="flex flex-col items-center gap-12 text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full py-12 sm:py-20">
+        <div className="flex flex-col items-center gap-8 sm:gap-12 text-center">
           <div className="max-w-3xl">
             <motion.p
               initial={{ opacity: 0, y: 10 }}
@@ -23,7 +23,7 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-accent font-sora text-sm font-semibold tracking-widest uppercase mb-4"
             >
-              Full Stack Engineer
+              Full Stack Developer
             </motion.p>
 
             <motion.h1

@@ -8,11 +8,11 @@ export function Skills() {
   const categories = Object.entries(skills);
 
   return (
-    <section id="skills" className="py-24 px-6">
+    <section id="skills" className="py-16 lg:py-24 px-6">
       <div className="max-w-7xl mx-auto">
         <SectionHeading title="Skills" subtitle="Technologies I use to build business software" />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {categories.map(([category, items], catIndex) => (
             <motion.div
               key={category}

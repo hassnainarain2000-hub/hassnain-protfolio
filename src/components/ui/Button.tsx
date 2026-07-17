@@ -19,7 +19,7 @@ export function Button({
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
       className={cn(
-        "relative px-8 py-3.5 rounded-xl font-sora font-semibold text-sm tracking-wide transition-all duration-300 cursor-pointer",
+        "relative px-6 py-3 sm:px-8 sm:py-3.5 rounded-xl font-sora font-semibold text-sm tracking-wide transition-all duration-300 cursor-pointer",
         variant === "primary" &&
           "bg-accent text-base hover:shadow-[0_0_24px_rgba(201,169,106,0.3)]",
         variant === "secondary" &&
