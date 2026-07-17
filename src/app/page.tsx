@@ -16,9 +16,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="relative overflow-hidden">
-        <div className="absolute top-20 right-0 w-96 h-96 rounded-full border border-accent/5 pointer-events-none" />
-        <div className="absolute top-40 left-10 w-16 h-16 border border-accent/10 rotate-45 pointer-events-none" />
+      <main>
         <Hero />
         <About />
         <Services />
@@ -27,7 +25,6 @@ export default function Home() {
         <Process />
         <FAQ />
         <Contact />
-        <div className="absolute bottom-40 left-0 w-80 h-80 rounded-full border border-accent/5 pointer-events-none" />
       </main>
       <Footer />
       <WhatsAppButton />
