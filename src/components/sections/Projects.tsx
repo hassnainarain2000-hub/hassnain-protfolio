@@ -23,10 +23,10 @@ export function Projects() {
           {projects.map((project, i) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 40, clipPath: "inset(100% 0 0 0)" }}
-              whileInView={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }}
-              viewport={{ once: false, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: i * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.1 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
             >
               <TiltCard>
                 <a

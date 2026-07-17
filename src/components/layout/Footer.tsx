@@ -7,7 +7,6 @@ export function Footer() {
     <footer className="relative border-t border-glass-border bg-secondary/30 overflow-hidden">
       <div className="absolute bottom-4 left-6 w-4 h-4 border border-accent/10 rotate-45 animate-rotate-slow pointer-events-none" />
       <div className="absolute top-6 right-10 w-2 h-2 rounded-full bg-accent/20 animate-pulse-soft pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full border border-accent/5 pointer-events-none" />
       <div className="absolute bottom-2 right-1/4 w-3 h-3 border border-accent/10 rotate-12 animate-float-gentle pointer-events-none" />
       <div className="max-w-7xl mx-auto px-6 py-12 sm:py-16">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">

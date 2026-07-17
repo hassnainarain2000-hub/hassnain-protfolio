@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useMemo } from "react";
+import { useRef, useState, useMemo, useEffect } from "react";
 import { useScroll, useMotionValueEvent } from "framer-motion";
 
 interface ScrollTypewriterProps {
@@ -12,8 +12,28 @@ function TypewriterText({ text, className }: { text: string; className?: string 
   const ref = useRef<HTMLDivElement>(null);
   const [charCount, setCharCount] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
+  const [revealed, setRevealed] = useState(false);
   const lastCountRef = useRef(0);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    const el = ref.current;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !revealed) {
+          setRevealed(true);
+          setCharCount(text.length);
+          setShowCursor(true);
+          if (timerRef.current) clearTimeout(timerRef.current);
+          timerRef.current = setTimeout(() => setShowCursor(false), 2400);
+        }
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [revealed, text.length]);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -21,16 +41,15 @@ function TypewriterText({ text, className }: { text: string; className?: string 
   });
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (revealed) return;
     const count = Math.min(Math.round(latest * text.length), text.length);
-    if (count !== lastCountRef.current) {
+    if (count > lastCountRef.current) {
       lastCountRef.current = count;
       setCharCount(count);
 
       if (count >= text.length && text.length > 0) {
         if (timerRef.current) clearTimeout(timerRef.current);
         timerRef.current = setTimeout(() => setShowCursor(false), 2400);
-      } else {
-        setShowCursor(true);
       }
     }
   });
@@ -51,7 +70,7 @@ function TypewriterText({ text, className }: { text: string; className?: string 
 
   return (
     <div ref={ref} className={className}>
-      {displayText}
+      {revealed ? text : displayText}
       {showCursor && (
         <span className="typing-cursor">&#9613;</span>
       )}

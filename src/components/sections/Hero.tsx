@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/Button";
 import { ScrollTypewriter } from "@/components/ui/ScrollTypewriter";
@@ -102,24 +101,6 @@ export function Hero() {
               </a>
             </motion.div>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative flex-shrink-0"
-          >
-            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-2 border-accent/20 glow-accent">
-              <Image
-                src="/portrait.jpg"
-                alt="Hassnain Arain - Full Stack Engineer"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-            <div className="absolute -inset-3 rounded-2xl border border-accent/10 animate-pulse" />
-          </motion.div>
         </div>
       </div>
 
