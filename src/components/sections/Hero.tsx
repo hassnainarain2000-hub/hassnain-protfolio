@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/Button";
 import { ArrowDown } from "lucide-react";
@@ -15,8 +16,8 @@ export function Hero() {
       <Scene />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full py-12 sm:py-20">
-        <div className="flex flex-col items-center gap-8 sm:gap-12 text-center">
-          <div className="max-w-3xl">
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+          <div className="flex-1 text-center lg:text-left">
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -41,7 +42,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-text-muted text-lg md:text-xl mb-8 max-w-xl mx-auto"
+              className="text-text-muted text-lg md:text-xl mb-8 max-w-xl mx-auto lg:mx-0"
             >
               Building custom software and professional websites for businesses.
               From web applications to desktop solutions — built for real results.
@@ -51,7 +52,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <a href="#contact">
                 <Button variant="primary">Let&apos;s Work Together</Button>
@@ -61,6 +62,24 @@ export function Hero() {
               </a>
             </motion.div>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="relative flex-shrink-0"
+          >
+            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-2 border-accent/20 glow-accent">
+              <Image
+                src="/portrait.jpg"
+                alt="Hassnain Arain - Full Stack Engineer"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+            <div className="absolute -inset-3 rounded-2xl border border-accent/10 animate-pulse" />
+          </motion.div>
         </div>
       </div>
 

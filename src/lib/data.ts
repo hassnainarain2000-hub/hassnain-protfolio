@@ -55,60 +55,40 @@ export const skills = {
 
 export const projects = [
   {
+    title: "Hospital Management System",
+    image: "/projects/hospital-management.svg",
+    demoUrl: "#",
+    githubUrl: "#",
+  },
+  {
+    title: "Restaurant Management System",
+    image: "/projects/restaurant-management.svg",
+    demoUrl: "#",
+    githubUrl: "#",
+  },
+  {
+    title: "Store & Inventory Management",
+    image: "/projects/store-inventory.svg",
+    demoUrl: "#",
+    githubUrl: "#",
+  },
+  {
     title: "Distribution Management System",
-    description:
-      "A complete software solution for managing distribution operations — tracking orders, managing deliveries, handling customer accounts, and generating business reports. Built to replace manual paperwork and spreadsheets with a reliable digital system.",
-    tech: ["Python", "Django", "PostgreSQL"],
-    features: [
-      "Order tracking and delivery management",
-      "Customer account management",
-      "Automated business reports",
-      "Real-time inventory visibility",
-    ],
-    value:
-      "Eliminated manual tracking errors and reduced order processing time by 60%, giving the business owner real-time visibility into operations.",
+    image: "/projects/distribution.svg",
+    demoUrl: "#",
+    githubUrl: "#",
   },
   {
-    title: "POS / Inventory Management System",
-    description:
-      "A full point-of-sale system with integrated inventory management. Handles sales transactions, tracks stock levels in real-time, manages suppliers, and generates detailed sales and inventory reports.",
-    tech: ["Python", "PostgreSQL", "Django"],
-    features: [
-      "Fast sales processing with barcode scanning",
-      "Real-time inventory tracking",
-      "Supplier and purchase order management",
-      "Sales analytics and reporting dashboard",
-    ],
-    value:
-      "Unified sales and inventory into one system, preventing stockouts and giving the business complete control over their retail operations.",
+    title: "POS System",
+    image: "/projects/pos-system.svg",
+    demoUrl: "#",
+    githubUrl: "#",
   },
   {
-    title: "Restaurant Management Software",
-    description:
-      "A desktop application built for restaurant operations — managing tables, orders, kitchen workflow, and billing. Designed for speed and reliability in a busy restaurant environment.",
-    tech: ["C#", ".NET Core", "WPF"],
-    features: [
-      "Table management and order routing",
-      "Kitchen display and order tracking",
-      "Menu management with categories and pricing",
-      "Bill generation and payment processing",
-    ],
-    value:
-      "Streamlined restaurant operations from order to payment, reducing wait times and eliminating order errors in a fast-paced environment.",
-  },
-  {
-    title: "E-commerce Website with Admin Panel",
-    description:
-      "A full-featured online store with a customer-facing storefront and a complete admin dashboard. Handles product listings, shopping cart, checkout, order management, and business analytics.",
-    tech: ["Node.js", "Express", "MongoDB"],
-    features: [
-      "Responsive storefront with product browsing",
-      "Shopping cart and secure checkout",
-      "Admin dashboard for products, orders, and users",
-      "Sales analytics and revenue tracking",
-    ],
-    value:
-      "Enabled the business to sell online with a professional storefront, while giving them full control through an intuitive admin panel.",
+    title: "E-commerce Website",
+    image: "/projects/ecommerce.svg",
+    demoUrl: "#",
+    githubUrl: "#",
   },
 ] as const;
 
