@@ -19,7 +19,7 @@ export function Contact() {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6 }}
             className="space-y-8"
           >
@@ -75,7 +75,7 @@ export function Contact() {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="glass rounded-2xl p-8 text-center"
           >

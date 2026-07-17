@@ -23,7 +23,7 @@ export function FAQ() {
               key={i}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
               className="glass rounded-xl overflow-hidden"
             >

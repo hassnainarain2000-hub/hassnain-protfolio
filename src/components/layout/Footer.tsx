@@ -4,7 +4,9 @@ import { navLinks, contact } from "@/lib/data";
 
 export function Footer() {
   return (
-    <footer className="border-t border-glass-border bg-secondary/30">
+    <footer className="relative border-t border-glass-border bg-secondary/30 overflow-hidden">
+      <div className="absolute bottom-4 left-6 w-4 h-4 border border-accent/10 rotate-45 animate-rotate-slow pointer-events-none" />
+      <div className="absolute top-6 right-10 w-2 h-2 rounded-full bg-accent/20 animate-pulse-soft pointer-events-none" />
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="text-center md:text-left">

@@ -18,7 +18,7 @@ export function Skills() {
               key={category}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.5, delay: catIndex * 0.1 }}
               className="glass rounded-2xl p-6"
             >
@@ -31,7 +31,7 @@ export function Skills() {
                     key={skill}
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     transition={{ duration: 0.3, delay: catIndex * 0.1 + i * 0.05 }}
                     className="px-3 py-1.5 rounded-lg bg-accent/10 text-text-primary text-sm border border-accent/10 hover:border-accent/30 transition-colors"
                   >

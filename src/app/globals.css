@@ -70,6 +70,33 @@ body {
   box-shadow: 0 0 30px rgba(201, 169, 106, 0.25), 0 0 60px rgba(201, 169, 106, 0.1);
 }
 
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px) rotate(45deg); }
+  50% { transform: translateY(-4px) rotate(45deg); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.1); }
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 20s linear infinite;
+}
+
+.animate-float-gentle {
+  animation: float-gentle 4s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

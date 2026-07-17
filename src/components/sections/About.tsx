@@ -21,7 +21,7 @@ export function About() {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
@@ -46,7 +46,7 @@ export function About() {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="glass rounded-2xl p-8 space-y-5"
           >
@@ -55,7 +55,7 @@ export function About() {
                 key={i}
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
                 className="flex items-start gap-3"
               >

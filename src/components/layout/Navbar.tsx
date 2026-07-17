@@ -78,6 +78,10 @@ export function Navbar() {
             ))}
           </div>
 
+          <div className="hidden lg:block absolute right-48 top-1/2 -translate-y-1/2 pointer-events-none">
+            <div className="w-3 h-3 border border-accent/15 rotate-45 animate-float-gentle" />
+          </div>
+
           <div className="hidden md:flex items-center gap-3">
             <a
               href="https://wa.me/923302920396"
