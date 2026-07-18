@@ -63,7 +63,7 @@ export function Scene() {
         <Suspense fallback={null}>
           <ambientLight intensity={0.4} />
           <directionalLight position={[5, 5, 5]} intensity={0.6} color="#C8C8CE" />
-          <directionalLight position={[-5, -3, -5]} intensity={0.3} color="#1C1C1F" />
+          <directionalLight position={[-5, -3, -5]} intensity={0.3} color="#16241C" />
           <pointLight position={[0, 3, 2]} intensity={0.5} color="#C8C8CE" distance={10} />
           <MouseParallax />
           <FloatingGeometry />

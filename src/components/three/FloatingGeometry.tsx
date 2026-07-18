@@ -94,7 +94,7 @@ export function FloatingGeometry() {
         geometry="octahedron"
         speed={0.25}
         rotationAxis="y"
-        color="#1C1C1F"
+        color="#16241C"
         wireframe
       />
       <Shape
@@ -109,7 +109,7 @@ export function FloatingGeometry() {
         geometry="dodecahedron"
         speed={0.15}
         rotationAxis="xy"
-        color="#1C1C1F"
+        color="#16241C"
         wireframe
       />
     </group>
