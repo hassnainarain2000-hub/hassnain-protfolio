@@ -15,9 +15,9 @@ function generateParticles(count: number) {
     siz[i] = Math.random() * 0.02 + 0.005;
     const r = Math.random();
     if (r < 0.15) {
-      col[i * 3] = 0.86; col[i * 3 + 1] = 0.15; col[i * 3 + 2] = 0.15;
+      col[i * 3] = 0.95; col[i * 3 + 1] = 0.93; col[i * 3 + 2] = 0.91;
     } else {
-      col[i * 3] = 0.78; col[i * 3 + 1] = 0.78; col[i * 3 + 2] = 0.81;
+      col[i * 3] = 0.79; col[i * 3 + 1] = 0.66; col[i * 3 + 2] = 0.42;
     }
   }
   return { pos, siz, col };

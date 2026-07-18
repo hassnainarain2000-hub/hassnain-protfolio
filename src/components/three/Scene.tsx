@@ -82,11 +82,11 @@ export function Scene() {
         style={{ background: "transparent" }}
       >
         <Suspense fallback={null}>
-          <ambientLight intensity={0.5} color="#1a3a2a" />
-          <directionalLight position={[5, 5, 5]} intensity={0.7} color="#C8C8CE" />
+          <ambientLight intensity={0.5} color="#0A120D" />
+          <directionalLight position={[5, 5, 5]} intensity={0.7} color="#C9A96A" />
           <directionalLight position={[-5, -3, -5]} intensity={0.3} color="#16241C" />
-          <pointLight position={[0, 3, 2]} intensity={0.6} color="#DC2626" distance={12} />
-          <pointLight position={[-3, -2, 1]} intensity={0.3} color="#C8C8CE" distance={8} />
+          <pointLight position={[0, 3, 2]} intensity={0.6} color="#C9A96A" distance={12} />
+          <pointLight position={[-3, -2, 1]} intensity={0.3} color="#C9A96A" distance={8} />
           <MouseParallax />
           <SceneGroup />
           <PostEffects />

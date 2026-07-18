@@ -74,7 +74,7 @@ export function Navbar() {
                 {activeSection === link.href && (
                   <motion.span
                     layoutId="activeNav"
-                    className="absolute inset-0 bg-[#DC2626]/10 rounded-lg border border-[#DC2626]/20"
+                    className="absolute inset-0 bg-accent/10 rounded-lg border border-accent/20"
                     transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                   />
                 )}
@@ -127,7 +127,7 @@ export function Navbar() {
                   onClick={(e) => { e.preventDefault(); scrollTo(link.href); }}
                   className={`py-3 px-4 rounded-xl text-lg font-medium transition-all ${
                     activeSection === link.href
-                      ? "bg-[#DC2626]/10 text-[#DC2626] border border-[#DC2626]/20"
+                      ? "bg-accent/10 text-accent border border-accent/20"
                       : "text-text-muted hover:text-text-primary"
                   }`}
                 >
@@ -138,7 +138,7 @@ export function Navbar() {
                 href="https://wa.me/923302920396"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 py-3 px-4 rounded-xl bg-[#DC2626] text-base font-semibold text-center"
+                className="mt-4 py-3 px-4 rounded-xl bg-accent text-base font-semibold text-center"
               >
                 Let&apos;s Talk on WhatsApp
               </a>
