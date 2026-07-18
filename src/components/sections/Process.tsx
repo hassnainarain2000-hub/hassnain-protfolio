@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ScrollTypewriter } from "@/components/ui/ScrollTypewriter";
+
 import { processSteps } from "@/lib/data";
 import { Phone, FileText, Code, Rocket } from "lucide-react";
 
@@ -58,9 +58,9 @@ export function Process() {
                   <h3 className="font-sora font-semibold text-lg text-text-primary mb-2">
                     {step.title}
                   </h3>
-                  <ScrollTypewriter className="text-text-muted text-sm leading-relaxed max-w-xs mx-auto">
+                  <p className="text-text-muted text-sm leading-relaxed max-w-xs mx-auto">
                     {step.description}
-                  </ScrollTypewriter>
+                  </p>
                 </motion.div>
               );
             })}

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ScrollTypewriter } from "@/components/ui/ScrollTypewriter";
+
 import { TiltCard } from "@/components/ui/TiltCard";
 import { CheckCircle } from "lucide-react";
 
@@ -26,17 +26,17 @@ export function About() {
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
             className="space-y-6"
           >
-            <ScrollTypewriter className="text-text-muted text-base sm:text-lg leading-relaxed">
+            <p className="text-text-muted text-base sm:text-lg leading-relaxed">
               I build software and websites that businesses actually use — reliable systems that handle daily operations, reduce errors, and save time.
-            </ScrollTypewriter>
+            </p>
 
-            <ScrollTypewriter className="text-text-muted text-base sm:text-lg leading-relaxed">
+            <p className="text-text-muted text-base sm:text-lg leading-relaxed">
               With 1.5 years of hands-on experience, I&apos;ve delivered real projects — POS systems, inventory management, distribution tracking, restaurant software, and professional business websites. Each built to solve a specific problem.
-            </ScrollTypewriter>
+            </p>
 
-            <ScrollTypewriter className="text-text-muted text-base sm:text-lg leading-relaxed">
+            <p className="text-text-muted text-base sm:text-lg leading-relaxed">
               Technology is secondary. What matters is that the software works, scales, and makes your operations smoother.
-            </ScrollTypewriter>
+            </p>
           </motion.div>
 
           <motion.div

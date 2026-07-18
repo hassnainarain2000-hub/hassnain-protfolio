@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { TiltCard } from "@/components/ui/TiltCard";
-import { ScrollTypewriter } from "@/components/ui/ScrollTypewriter";
+
 import { services } from "@/lib/data";
 import {
   Layers,
@@ -56,9 +56,9 @@ export function Services() {
                     <h3 className="font-sora font-semibold text-lg text-text-primary mb-2">
                       {service.title}
                     </h3>
-                    <ScrollTypewriter className="text-text-muted text-sm leading-relaxed">
+                    <p className="text-text-muted text-sm leading-relaxed">
                       {service.description}
-                    </ScrollTypewriter>
+                    </p>
                   </GlassCard>
                 </TiltCard>
               </motion.div>

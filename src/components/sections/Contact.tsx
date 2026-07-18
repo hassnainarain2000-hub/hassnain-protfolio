@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ScrollTypewriter } from "@/components/ui/ScrollTypewriter";
+
 import { TiltCard } from "@/components/ui/TiltCard";
 import { Button } from "@/components/ui/Button";
 import { contact } from "@/lib/data";
@@ -25,9 +25,9 @@ export function Contact() {
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
             className="space-y-8"
           >
-            <ScrollTypewriter className="text-text-muted text-lg leading-relaxed">
+            <p className="text-text-muted text-lg leading-relaxed">
               Have a business problem that needs a software solution? Whether it&apos;s a point-of-sale system, inventory management, or a custom web application — I&apos;d love to hear about your project.
-            </ScrollTypewriter>
+            </p>
 
             <div className="space-y-4">
               <motion.a

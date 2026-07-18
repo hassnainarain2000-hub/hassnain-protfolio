@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ScrollTypewriter } from "@/components/ui/ScrollTypewriter";
 
 interface SectionHeadingProps {
   title: string;
@@ -18,7 +19,7 @@ export function SectionHeading({ title, subtitle, centered = true }: SectionHead
       className={`mb-12 ${centered ? "text-center" : ""}`}
     >
       <h2 className="font-sora text-3xl md:text-4xl font-bold text-text-primary mb-3">
-        {title}
+        <ScrollTypewriter>{title}</ScrollTypewriter>
       </h2>
       {subtitle && (
         <p className="text-text-muted text-lg max-w-2xl mx-auto">{subtitle}</p>

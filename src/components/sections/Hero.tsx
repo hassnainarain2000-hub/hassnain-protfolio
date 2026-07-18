@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/Button";
-import { ScrollTypewriter } from "@/components/ui/ScrollTypewriter";
+
 import { ArrowDown } from "lucide-react";
 
 const Scene = dynamic(() => import("@/components/three/Scene").then((m) => m.Scene), {
@@ -83,9 +83,9 @@ export function Hero() {
 
             <LetterByLetter />
 
-            <ScrollTypewriter className="text-text-muted text-lg md:text-xl mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-text-muted text-lg md:text-xl mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
               Building custom software and professional websites for businesses. From web applications to desktop solutions — built for real results.
-            </ScrollTypewriter>
+            </p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}

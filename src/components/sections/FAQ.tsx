@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ScrollTypewriter } from "@/components/ui/ScrollTypewriter";
+
 import { faqs } from "@/lib/data";
 import { ChevronDown } from "lucide-react";
 
@@ -54,9 +54,9 @@ export function FAQ() {
                     className="overflow-hidden"
                   >
                     <div className="px-5 pb-5">
-                      <ScrollTypewriter className="text-text-muted text-sm leading-relaxed">
+                      <p className="text-text-muted text-sm leading-relaxed">
                         {faq.answer}
-                      </ScrollTypewriter>
+                      </p>
                     </div>
                   </motion.div>
                 )}
