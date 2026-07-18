@@ -38,7 +38,7 @@ function PostEffects() {
         const { EffectComposer, Bloom, Vignette } = mod;
         const Comp = () => (
           <EffectComposer>
-            <Bloom intensity={0.3} luminanceThreshold={0.8} mipmapBlur />
+            <Bloom intensity={0.4} luminanceThreshold={0.4} mipmapBlur />
             <Vignette offset={0.3} darkness={0.5} />
           </EffectComposer>
         );
@@ -51,6 +51,27 @@ function PostEffects() {
   return <Module />;
 }
 
+function SceneGroup() {
+  const groupRef = useRef<THREE.Group>(null!);
+
+  useFrame((state) => {
+    const t = state.clock.getElapsedTime();
+    if (groupRef.current) {
+      groupRef.current.rotation.y = Math.sin(t * 0.05) * 0.1;
+    }
+  });
+
+  return (
+    <group ref={groupRef}>
+      <FloatingGeometry />
+      <GlassSphere />
+      <Particles />
+    </group>
+  );
+}
+
+import * as THREE from "three";
+
 export function Scene() {
   return (
     <div className="absolute inset-0 z-0">
@@ -61,14 +82,13 @@ export function Scene() {
         style={{ background: "transparent" }}
       >
         <Suspense fallback={null}>
-          <ambientLight intensity={0.4} />
-          <directionalLight position={[5, 5, 5]} intensity={0.6} color="#C8C8CE" />
+          <ambientLight intensity={0.5} color="#1a3a2a" />
+          <directionalLight position={[5, 5, 5]} intensity={0.7} color="#C8C8CE" />
           <directionalLight position={[-5, -3, -5]} intensity={0.3} color="#16241C" />
-          <pointLight position={[0, 3, 2]} intensity={0.5} color="#C8C8CE" distance={10} />
+          <pointLight position={[0, 3, 2]} intensity={0.6} color="#DC2626" distance={12} />
+          <pointLight position={[-3, -2, 1]} intensity={0.3} color="#C8C8CE" distance={8} />
           <MouseParallax />
-          <FloatingGeometry />
-          <GlassSphere />
-          <Particles />
+          <SceneGroup />
           <PostEffects />
         </Suspense>
       </Canvas>

@@ -26,11 +26,12 @@ function Sphere({
         <meshPhysicalMaterial
           color="#C8C8CE"
           transparent
-          opacity={0.15}
-          roughness={0.1}
-          metalness={0.2}
-          transmission={0.6}
+          opacity={0.2}
+          roughness={0.05}
+          metalness={0.3}
+          transmission={0.5}
           thickness={0.5}
+          envMapIntensity={1.5}
         />
       </mesh>
     </Float>

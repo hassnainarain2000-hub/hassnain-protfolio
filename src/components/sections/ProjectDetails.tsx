@@ -97,7 +97,7 @@ export function ProjectDetails({ project, onClose }: ProjectDetailsProps) {
                   href={project.demoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#2563EB] text-base font-semibold hover:bg-[#2563EB]/90 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#DC2626] text-base font-semibold hover:bg-[#DC2626]/90 transition-colors"
                 >
                   <ExternalLink size={18} />
                   Live Demo
